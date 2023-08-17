@@ -24,7 +24,7 @@ async function index(req, res, next) {
 
         const allCategories = await Category.find({ _id : { $nin: listings.category }}).sort('title');
 
-        res.render('index', { title: 'All Listings', listings, categories: allCategories });
+        res.render('index', { title: 'Shop \'n\' List', listings, categories: allCategories });
     } catch (err) {
         console.log(err);
         next(err);
