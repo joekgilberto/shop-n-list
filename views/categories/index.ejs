@@ -1,0 +1,19 @@
+<%- include('../partials/header.ejs') %>
+<section class="cats">
+  <% categories.forEach(c => {%>
+    <div class="categories-cats">
+    <h2><%= c.title %></h2>
+    <% listings.forEach(listing => { %>
+        <% if (c._id.toString() === listing.category.toString()){ %>
+            <p>
+                <a href="/listings/<%=listing._id%>">
+                    <%=listing.title%>
+                </a>
+            <p>
+        <% } %>
+    <%})%>
+    </div>
+  <%})%>
+</section>
+
+  <%- include('../partials/footer.ejs') %>

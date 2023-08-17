@@ -1,0 +1,32 @@
+<%- include('../partials/header') %>
+  <section class="cat-listing">
+    <h1>
+      <%=title%>
+    </h1>
+    <div>
+      <div class="new-inputs">
+        <div class="cat-check">
+      <% if (categories.length){%>
+        <h3>Please first ensure that the Category is not in the dropdown</h3>
+        <select name="categoryId">
+          <% categories.forEach(c=>{%>
+            <option value="<%=c._id%>">
+              <%=c.title%>
+            </option>
+            <%})%>
+        </select>
+        <%}%>
+      </div>
+    <form action="/categories" method="POST">
+      <label>Title: <input type="text" name="title" required /> </label>
+      </div>
+      <div class="cat-submit">
+        <button type="submit">Add Category</button>
+      </div>
+    </form>
+    <p>
+      <%= errorMsg %>
+    </p>
+  </section>
+
+  <%- include('../partials/footer') %>

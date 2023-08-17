@@ -1,0 +1,104 @@
+<%- include('../partials/header.ejs') %>
+    <section class="show-page">
+        <section class="show-listing">
+            <div class="show-title-post">
+                <div class="show-title-price">
+                    <h1>
+                        <%= listing.title%>
+                    </h1>
+                    <p>$<%= listing.price%>
+                    </p>
+                </div>
+                <div class="show-category">
+                <% if(listing.category.length){%>
+                        <% listing.category.forEach(c=>{%>
+                            <p>
+                                <span class="bold-underline">Category:</span><br/><span class="black-text"><%=c.title%></span>
+                            </p>
+                            <% })%>
+                    <% } %>
+                </div>
+            </div>
+            <!-- Info for specific listings -->
+            <div class="show-description">
+                <p>
+                    <span class="bold-underline">About:</span><br />
+                    <%= listing.description%>
+                </p>
+                <% if (listing.username){ %>
+                    <p><span class="bold-underline">Seller:</span><br />
+                        <%= listing.username%>
+                    </p>
+                    <% } %>
+            </div>
+            <div class="show-status-date">
+                <% if(listing.sold===false){ %>
+                    <p class="for-sale">For Sale</p>
+                    <% } else if(listing.sold===true) { %>
+                        <p class="sold">Sold</p>
+                        <%}%>
+                            <p class="show-date">Posted:<br />
+                                <% const
+                                    month=["January","February","March","April","May","June","July","August","September","October","November","December"];
+                                    %>
+                                    <%= month[listing.listingDate.getMonth()] %>
+                                        <%= listing.listingDate.getDate() %>,
+                                            <%= listing.listingDate.getFullYear() %>
+                            </p>
+            </div>
+            <div class="show-buttons">
+                <% if(user?._id.equals(listing.user)){ %>
+                    <a href="/listings/<%=listing._id%>/edit"><button class="edit">Edit</button></a>
+                    <form action="/listings/<%= listing._id %>?_method=DELETE" method="POST">
+                        <button class="delete" type="submit">Delete</button>
+                    </form>
+                    <% } %>
+            </div>
+        </section>
+        <!-- Bidding menu; shows past, pending, and accepted bids -->
+        <section class="show-bidding">
+            <h2>Auction</h2>
+            <div class="show-bids">
+                <% if (auctions.length> 0){ %>
+                    <% auctions.forEach((a)=>{ %>
+                        <div class="bid">
+                            <div class="bid-info">
+                                <p>
+                                    $<%=a.offer%>
+                                </p>
+                                <% if (a.accepted){ %>
+                                    <p class="accepted">Accepted</p>
+                                    <% } else { %>
+                                        <p class="considering">Considering</p>
+                                        <% } %>
+                            </div>
+                            <div class="show-bid-delete">
+                                <% if (user?._id.equals(a.user)){ %>
+                                    <form action="/listings/<%= listing._id %>/auction/<%=a._id%>?_method=DELETE"
+                                        method="POST">
+                                        <button class="show-x" type="submit">X</button>
+                                    </form>
+                                    <% } %>
+                            </div>
+                        </div>
+
+                        <% }) %>
+                            <% } else { %>
+                                <p class="no-bids">No bids yet</p>
+                                <% } %>
+            </div>
+            <div class="show-offer">
+                <% if (user && !user?._id.equals(listing.user)) { %>
+                    <form class="show-offer-input" action="/listings/<%=listing._id%>/auction/new" method="POST">
+                        <label>Offer: $
+                            <input type="number" min="0" step="0.01" name="offer" required>
+                        </label>
+                        <button type="submit">Place Bid</button>
+                    </form>
+                    <% } %>
+
+            </div>
+        </section>
+    </section>
+
+    <%- include('../partials/footer.ejs') %>

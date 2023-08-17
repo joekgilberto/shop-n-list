@@ -1,0 +1,41 @@
+<%- include('./partials/header.ejs') %>
+
+  <section class="index-listings">
+    <% for (let list of listings){ %>
+      <section class="index-list">
+
+        <div class="index-title-price-cat">
+          <div class="index-title-price">
+          <h2>
+            <%= list.title%>
+          </h2>
+          <h2>
+            $<%= list.price%>
+          </h2>
+        </div>
+
+          <% if(list.category.length){%>
+            <% list.category.forEach(c=>{%>
+              <p class="index-category">Category: <%=c.title%></p>
+            <% })%>
+        </div>
+
+
+        <div class="index-post-info">
+        <% } %>
+          <p class="index-link">
+            <a href="/listings/<%=list._id%>">More Info</a>
+          </p>
+          <p class="index-date">Posted:<br/> 
+            <% const
+              month=["January","February","March","April","May","June","July","August","September","October","November","December"];
+              %>
+              <%= month[list.listingDate.getMonth()] %>
+                <%= list.listingDate.getDate() %>,
+                  <%= list.listingDate.getFullYear() %>
+          </p>
+      </section>
+      <% }%>
+  </section>
+
+  <%- include('./partials/footer.ejs') %>

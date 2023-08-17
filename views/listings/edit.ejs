@@ -1,0 +1,46 @@
+<%- include('../partials/header.ejs') %>
+  <section class="edit-listing">
+    <h1>
+      <%=title%>
+    </h1>
+    <!-- Form to edit existing listings -->
+    <form action="/listings/<%= listing._id %>?_method=PUT" method="POST">
+      <div class="edit-inputs">
+        <div class="edit-title-price">
+
+          <label>Title:
+            <input type="text" name="title" value="<%= listing.title %>" required>
+          </label>
+
+          <label>Price:
+            <input type="number" name="price" min="0" value="<%= listing.price %>" required>
+          </label>
+        </div>
+
+        <label class="edit-description">Description:
+          <input type="text" name="description" value="<%= listing.description %>" required>
+        </label><br>
+
+        <label>Category:
+          <select name="categoryId" required>
+            <% categories.forEach(c =>{%>
+              <option value="<%= c.id %>" <% if(listing?.category[0].equals(c.id)){ %> selected <% } %>>
+                <%= c.title %>
+              </option>
+            <%})%>
+          </select>
+        </label><br>
+        <label class="edit-sold">Sold?
+          <input class="sold-check" type="checkbox" name="sold" <% if (listing.sold){ %> checked<% } %>>
+        </label>
+      </div>
+      <div class="edit-submit">
+        <button type="submit">Edit Listing</button>
+      </div>
+    </form>
+    <p>
+      <%= errorMsg %>
+    </p>
+  </section>
+
+  <%- include('../partials/footer.ejs') %>

@@ -1,0 +1,42 @@
+<%- include('../partials/header.ejs') %>
+  <section class="new-listing">
+    <h1>
+      <%=title%>
+    </h1>
+    <!-- Page to create new listing -->
+    <form action="/listings" method="POST">
+      <div class="new-inputs">
+        <div class="new-title-price">
+          <label>Title:
+            <input type="text" name="title" required>
+          </label><br>
+          <label>Price: $
+            <input type="number" name="price" min="0" required>
+          </label><br>
+        </div>
+        <label class="new-description">Description:<br />
+          <input type="text" name="description" required>
+        </label><br>
+
+        <label>Category:
+          <select name="categoryId">
+            <% categories.forEach(c =>{%>
+              <option value="<%= c._id %>">
+                <%= c.title %>
+              </option>
+            <%})%>
+          </select>
+          <!-- <input type="submit" value="Add Category" /> -->
+        </label><br>
+      </div>
+      <div class="new-submit">
+        <button type="submit">Add Listing</button>
+      </div>
+
+    </form>
+    <p>
+      <%= errorMsg %>
+    </p>
+  </section>
+
+  <%- include('../partials/footer.ejs') %>
