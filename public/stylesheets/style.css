@@ -6,6 +6,11 @@
   font-family: 'Lexend', sans-serif;
 }
 
+html {
+  width: 100%;
+  height: 100%;
+}
+
 /* -------------------------------------------- Elements -------------------------------------------- */
 a {
   color: white;
@@ -22,6 +27,9 @@ section {
 
 /* -------------------------------------------- Divs -------------------------------------------- */
 body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
   background-color: #ecf8ff;
 }
 
@@ -53,17 +61,17 @@ nav button {
   background-color: transparent;
   color: #ecf8ff;
   border-radius: 15px;
-  width: 140px;
+  width: 160px;
   height: 50px;
   font-size: 18px;
   border: none;
   margin: 0 10px;
-
 }
 
 .active {
   color: #2fb8e9;
   background-color: #ecf8ff;
+    border: 2px solid #55a0bb;
 }
 
 main {
@@ -105,10 +113,9 @@ footer {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 75px;
   justify-content: center;
   align-items: left;
-  padding: 0px 10px;
+  padding: 0px 20px;
   background-color: #d9eff7;
   border-radius: 15px 15px 0 0;
   border-top: 2px solid #55a0bb;
@@ -119,9 +126,13 @@ footer {
 
 .index-title-price {
   width: 100%;
-  height: 35px;
   display: flex;
   justify-content: space-between;
+}
+
+.index-title{
+  padding-bottom: 5px;
+  border-bottom: 3px solid #55a0bb;
 }
 
 .index-post-info {
@@ -130,7 +141,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  padding: 20px 10px 0 10px;
+  padding: 20px 20px 0 20px;
   background-color: #2fb8e9;
   border-radius: 0 0 15px 15px;
   border-left: 2px solid #55a0bb;
@@ -179,13 +190,18 @@ footer {
   align-items: center;
 }
 
+.show-category{
+  display: flex;
+  justify-content: space-between;
+}
+
 .show-category>p {
   padding: 0;
+  font-weight: 300;
 }
 
 .show-description {
   padding-bottom: 10px;
-  border-bottom: 4px solid #bedde9;
   font-weight: 300;
 }
 
@@ -203,6 +219,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 4px solid #bedde9;
 }
 
 .for-sale {
@@ -220,22 +237,32 @@ footer {
 }
 
 .show-buttons button {
-  width: 150px;
+  width: 120px;
   height: 50px;
   font-size: 22px;
+  background-color: transparent;
+  border-radius: 10px;
   margin: 20px;
-  border: none;
-  border-radius: 15px;
 }
 
 .edit {
-  background-color: #57b848;
-  color: #fff;
+  border: 2px solid #57b848;
+  color: #57b848;
+}
+
+.edit:hover{
+  border: 2px solid #388d2b;
+  color: #388d2b;
 }
 
 .delete {
-  background-color: rgb(234, 52, 52);
-  color: #fff;
+  border: 2px solid #ea3434;
+  color: #ea3434;
+}
+
+.delete:hover{
+  border: 2px solid #ae1d1d;
+  color: #ae1d1d;
 }
 
 .show-date {
@@ -349,6 +376,8 @@ footer {
   height: 30px;
   font-size: 16px;
   border-radius: 10px;
+  border: 2px solid #55a0bb;
+
 }
 
 .show-offer-input {
@@ -390,7 +419,8 @@ footer {
 
 .new-inputs,
 .edit-inputs,
-.cat-inputs {
+.cat-inputs,
+.new-category-inputs {
   width: 700px;
   height: 400px;
   display: flex;
@@ -459,7 +489,7 @@ footer {
 
 .new-submit,
 .edit-submit,
-.cat-submit {
+.new-category-submit {
   padding: 20px 0;
   width: 700px;
   border-radius: 0 0 15px 15px;
@@ -484,8 +514,19 @@ footer {
 }
 
 /* ############################################## Categories ############################################## */
-.cat-check {
+
+.categories-index>h1{
+  width: 175px;
+  height: auto;
+  text-align: center;
+  border-bottom: 3px solid #55a0bb;
+  padding-bottom: 10px;
+  margin-left: 20px;
+}
+
+.category-check {
   width: 50%;
+  height: 300px;
   text-align: center;
 }
 
@@ -504,4 +545,35 @@ footer {
 
 .categories-listed>p>a {
   color: #2fb8e9 !important;
+}
+
+.new-category-inputs {
+  justify-content: center;
+}
+
+.new-category-inputs>form{
+  margin-top: 40px;
+}
+
+.new-category-inputs>form>label>input{
+  font-size: 16px;
+}
+
+.new-category-check{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.new-category-list{
+  width: 170px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background-color: #bedde9;
+  border: 2px solid #55a0bb;;
 }

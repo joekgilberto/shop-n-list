@@ -6,23 +6,22 @@
 
         <div class="index-title-price-cat">
           <div class="index-title-price">
-          <h2>
+          <h2 class="index-title">
             <%= list.title%>
           </h2>
           <h2>
             $<%= list.price%>
           </h2>
         </div>
-
-          <% if(list.category.length){%>
-            <% list.category.forEach(c=>{%>
-              <p class="index-category">Category: <%=c.title%></p>
-            <% })%>
+          <% for(let category of categories){ %>
+              <% if(list?.category.equals(category._id)){ %>
+              <p class="index-category">Category: <%=category.title%></p>
+              <% } %>
+          <% } %>
         </div>
 
 
         <div class="index-post-info">
-        <% } %>
           <p class="index-link">
             <a href="/listings/<%=list._id%>">More Info</a>
           </p>

@@ -8,6 +8,4 @@ router.get('/categories/new', categoryCtrl.new);
 
 router.post('/categories', categoryCtrl.create);
 
-router.post('/listings/:id/categories', categoryCtrl.addToCategory);
-
 module.exports = router;

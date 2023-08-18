@@ -9,27 +9,6 @@
                     <p>$<%= listing.price%>
                     </p>
                 </div>
-                <div class="show-category">
-                <% if(listing.category.length){%>
-                        <% listing.category.forEach(c=>{%>
-                            <p>
-                                <span class="bold-underline">Category:</span><br/><span class="black-text"><%=c.title%></span>
-                            </p>
-                            <% })%>
-                    <% } %>
-                </div>
-            </div>
-            <!-- Info for specific listings -->
-            <div class="show-description">
-                <p>
-                    <span class="bold-underline">About:</span><br />
-                    <%= listing.description%>
-                </p>
-                <% if (listing.username){ %>
-                    <p><span class="bold-underline">Seller:</span><br />
-                        <%= listing.username%>
-                    </p>
-                    <% } %>
             </div>
             <div class="show-status-date">
                 <% if(listing.sold===false){ %>
@@ -45,6 +24,27 @@
                                         <%= listing.listingDate.getDate() %>,
                                             <%= listing.listingDate.getFullYear() %>
                             </p>
+            </div>
+            <!-- Info for specific listings -->
+            <div class="show-category">
+                <% if(listing.category.length){%>
+                        <% listing.category.forEach(c=>{%>
+                            <p>
+                                <span class="bold-underline">Category:</span><br/><span class="black-text"><%=c.title%></span>
+                            </p>
+                            <% })%>
+                    <% } %>
+                    <% if (listing.username){ %>
+                        <p><span class="bold-underline">Seller:</span><br />
+                            <%= listing.username%>
+                        </p>
+                        <% } %>
+                </div>
+            <div class="show-description">
+                <p>
+                    <span class="bold-underline">About:</span><br />
+                    <%= listing.description%>
+                </p>
             </div>
             <div class="show-buttons">
                 <% if(user?._id.equals(listing.user)){ %>

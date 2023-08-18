@@ -24,7 +24,7 @@
         <label>Category:
           <select name="categoryId" required>
             <% categories.forEach(c =>{%>
-              <option value="<%= c.id %>" <% if(listing?.category[0].equals(c.id)){ %> selected <% } %>>
+              <option value="<%= c.id %>" <% if(listing?.category.equals(c.id)){ %> selected <% } %>>
                 <%= c.title %>
               </option>
             <%})%>

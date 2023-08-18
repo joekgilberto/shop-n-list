@@ -1,5 +1,5 @@
 <%- include('../partials/header.ejs') %>
-  <section class="cats">
+  <section class="categories-index">
     <h1>
       <%= title %>
     </h1>
@@ -10,7 +10,7 @@
         </p>
         <% let count=0%>
         <% listings.forEach(listing=> { %>
-          <% if (c?._id.equals(listing.category[0])){ count++ } %>
+          <% if (c?._id.equals(listing.category)){ count++ } %>
           <%})%>
           <p>
             <a href="/categories/<%=c._id%>">

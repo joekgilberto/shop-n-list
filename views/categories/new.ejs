@@ -3,24 +3,22 @@
     <h1>
       <%=title%>
     </h1>
-    <div>
-      <div class="new-inputs">
-        <div class="cat-check">
+      <div class="new-category-inputs">
+        <h3>Current Catagories</h3>
+        <div class="new-category-check">
       <% if (categories.length){%>
-        <h3>Please first ensure that the Category is not in the dropdown</h3>
-        <select name="categoryId">
           <% categories.forEach(c=>{%>
-            <option value="<%=c._id%>">
+            <p class="new-category-list">
               <%=c.title%>
-            </option>
+            </p>
             <%})%>
-        </select>
         <%}%>
       </div>
+
     <form action="/categories" method="POST">
       <label>Title: <input type="text" name="title" required /> </label>
       </div>
-      <div class="cat-submit">
+      <div class="new-category-submit">
         <button type="submit">Add Category</button>
       </div>
     </form>

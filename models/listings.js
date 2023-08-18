@@ -6,10 +6,10 @@ const listingSchema = new Schema({
     title: { type: String, required: true },
     description: { type: String, required: true },
     price: { type: Number, required: true },
-    category: [{
+    category: {
         type: Schema.Types.ObjectId,
         ref: 'Category',
-    }],
+    },
     listingDate: {
         type: Date,
         default: new Date()
@@ -20,7 +20,8 @@ const listingSchema = new Schema({
     },
     //add required true
     user: { type: Schema.Types.ObjectId },
-    username: { type: String }
+    username: { type: String },
+    email:  { type: String }
 })
 
 module.exports = mongoose.model('Listing', listingSchema)

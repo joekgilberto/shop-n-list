@@ -22,7 +22,7 @@ async function index(req, res, next) {
           return b.listingDate - a.listingDate
         })
 
-        const allCategories = await Category.find({ _id : { $nin: listings.category }}).sort('title');
+        const allCategories = await Category.find().sort('title');
 
         res.render('index', { title: 'Shop \'n\' List', listings, categories: allCategories });
     } catch (err) {
@@ -33,12 +33,9 @@ async function index(req, res, next) {
 
 // Function that renders a page to add new listings
 async function newListing(req, res, next) {
-    const id = req.params.id
-    const listings = await Listing.find(id).populate('category');
+    const allCategories = await Category.find().sort('title');
 
-    const allCategories = await Category.find({ _id : { $nin: listings.category }}).sort('title');
-
-    res.render('listings/new', { title: 'New Listing', listings, categories: allCategories, errorMsg: '' });
+    res.render('listings/new', { title: 'New Listing', categories: allCategories, errorMsg: '' });
 }
 
 // Function that creates a listing using form data and assings it a user, username, and category property
@@ -51,14 +48,12 @@ async function create(req, res, next) {
 
     try {
         const createdListing = await Listing.create(listingData).then(function(result){
-            result.category.push(req.body.categoryId)
+            result.category = req.body.categoryId
             result.save()
             res.redirect(`/listings/${result._id}`);
         })
     } catch (err) {
-        const id = req.params.id
-        const listings = await Listing.find(id).populate('category');
-        const allCategories = await Category.find({ _id : { $nin: listings.category }}).sort('title');
+        const allCategories = await Category.find().sort('title');
         console.log(err);
         res.render('listings/new', { title: 'New Listing', errorMsg: err.message, categories: allCategories });
     }
@@ -68,10 +63,8 @@ async function create(req, res, next) {
 async function show(req, res, next) {
     try {
         const id = req.params.id
-        const showListing = await Listing.findById(id).populate('category');
+        const showListing = await Listing.findById(id);
         let auctions = await Auction.find({listing: new ObjectId(id)});
-
-        const allCategories = await Category.find({ _id : { $nin: showListing.category }}).sort('title');
         
         if (auctions.length > 0) {
 
@@ -90,7 +83,7 @@ async function show(req, res, next) {
             })
         }
 
-        res.render('listings/show', { title: showListing.title, listing: showListing, auctions, categories: allCategories });
+        res.render('listings/show', { title: showListing.title, listing: showListing, auctions });
     } catch (err) {
         console.log(err);
         next(Error(err));
@@ -100,9 +93,9 @@ async function show(req, res, next) {
 // Function to render an edit page to update a listing 
 async function edit(req, res, next) {
     const id = req.params.id;
-    const results = await Listing.findById(id).populate('category');
+    const results = await Listing.findById(id);
 
-    const allCategories = await Category.find({}).sort('title');
+    const allCategories = await Category.find().sort('title');
     
     res.render('listings/edit', { title: `Edit Listing`, listing: results, categories: allCategories, id, errorMsg: '' })
 }
