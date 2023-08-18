@@ -82,7 +82,8 @@ nav button {
 .active {
   color: #2fb8e9;
   background-color: #ecf8ff;
-    border: 2px solid #55a0bb;
+  border: 3px solid #55a0bb;
+  box-shadow: 2.5px 2.5px 0px #397185;
 }
 
 main {
@@ -129,10 +130,10 @@ footer {
   padding: 0px 20px;
   background-color: #d9eff7;
   border-radius: 15px 15px 0 0;
-  border-top: 2px solid #55a0bb;
-  border-left: 2px solid #55a0bb;
-  border-right: 2px solid #55a0bb;
-
+  border-left: 3px solid #2fb8e9;
+  border-top: 3px solid #2fb8e9;
+  border-right: 3px solid #2fb8e9;
+  box-shadow: 5px 5px 0px #397185;
 }
 
 .index-title-price {
@@ -146,6 +147,10 @@ footer {
   border-bottom: 3px solid #55a0bb;
 }
 
+.index-category{
+  color: #55a0bb;
+}
+
 .index-post-info {
   height: 75px;
   width: 100%;
@@ -155,10 +160,7 @@ footer {
   padding: 20px 20px 0 20px;
   background-color: #2fb8e9;
   border-radius: 0 0 15px 15px;
-  border-left: 2px solid #55a0bb;
-  border-top: 2px solid #55a0bb;
-  border-bottom: 2px solid #55a0bb;
-  border-right: 2px solid #55a0bb;
+  box-shadow: 5px 5px 0px #397185;
   margin: 0;
   color: #ecf8ff;
 }
@@ -176,7 +178,7 @@ footer {
 .show-page {
   display: flex;
   justify-content: center;
-  font-size: 22px;
+  font-size: 23px;
 }
 
 .show-listing,
@@ -250,29 +252,29 @@ footer {
 .show-buttons button {
   width: 120px;
   height: 50px;
-  font-size: 22px;
+  font-size: 23px;
   background-color: transparent;
   border-radius: 10px;
   margin: 20px;
 }
 
 .edit {
-  border: 2px solid #57b848;
+  border: 3px solid #57b848;
   color: #57b848;
 }
 
 .edit:hover{
-  border: 2px solid #388d2b;
+  border: 3px solid #388d2b;
   color: #388d2b;
 }
 
 .delete {
-  border: 2px solid #ea3434;
+  border: 3px solid #ea3434;
   color: #ea3434;
 }
 
 .delete:hover{
-  border: 2px solid #ae1d1d;
+  border: 3px solid #ae1d1d;
   color: #ae1d1d;
 }
 
@@ -285,6 +287,7 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  
 }
 
 .show-bidding>h2 {
@@ -295,10 +298,8 @@ footer {
   background-color: #2fb8e9;
   margin: 0;
   color: #fff;
-  border-left: 2px solid #55a0bb;
-  border-top: 2px solid #55a0bb;
-  border-bottom: 2px solid #55a0bb;
-  border-right: 2px solid #55a0bb;
+  box-shadow: 5px 5px 0px #397185;
+
 }
 
 .show-bids {
@@ -309,8 +310,9 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-left: 2px solid #55a0bb;
-  border-right: 2px solid #55a0bb;
+  border-left: 3px solid #2fb8e9;
+  border-right: 3px solid #2fb8e9;
+  box-shadow: 5px 5px 0px #397185;
 }
 
 .bid {
@@ -337,7 +339,7 @@ footer {
 }
 
 .considering {
-  color: #ffa825;
+  color: #55a0bb;
 }
 
 .show-bid-delete {
@@ -367,16 +369,15 @@ footer {
   height: 20%;
   border-radius: 0 0 15px 15px;
   background-color: #2fb8e9;
-  border-left: 2px solid #55a0bb;
-  border-top: 2px solid #55a0bb;
-  border-bottom: 2px solid #55a0bb;
-  border-right: 2px solid #55a0bb;
+  box-shadow: 5px 5px 0px #397185;
 }
 
 .show-offer input {
-  border: 2px solid #55a0bb;
+  border: 3px solid #55a0bb;
   font-weight: 300;
   font-size: 16px;
+  box-shadow: 2.5px 2.5px 0px #397185;
+  border-radius: 5px;
 }
 
 .show-offer button {
@@ -386,8 +387,9 @@ footer {
   width: 100px;
   height: 30px;
   font-size: 16px;
-  border-radius: 10px;
-  border: 2px solid #55a0bb;
+  border-radius: 5px;
+  border: 3px solid #55a0bb;
+  box-shadow: 2.5px 2.5px 0px #397185;
 
 }
 
@@ -409,7 +411,7 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 22px;
+  font-size: 23px;
 }
 
 .new-listing>h1,
@@ -423,9 +425,9 @@ footer {
   color: #fff;
   text-align: center;
   margin-top: 20px;
-  border-left: 2px solid #55a0bb;
-  border-top: 2px solid #55a0bb;
-  border-right: 2px solid #55a0bb;
+  border-left: 3px solid #55a0bb;
+  border-top: 3px solid #55a0bb;
+  border-right: 3px solid #55a0bb;
 }
 
 .new-inputs,
@@ -439,19 +441,19 @@ footer {
   justify-content: space-evenly;
   align-items: center;
   background-color: #d9eff7;
-  border-left: 2px solid #55a0bb;
-  border-top: 2px solid #55a0bb;
-  border-bottom: 2px solid #55a0bb;
-  border-right: 2px solid #55a0bb;
+  border-left: 3px solid #55a0bb;
+  border-top: 3px solid #55a0bb;
+  border-bottom: 3px solid #55a0bb;
+  border-right: 3px solid #55a0bb;
 }
 
-.new-inputs input,
-.edit-inputs input,
-.cat-input input {
+.new-inputs input, .new-inputs  select,
+.edit-inputs input, .edit-inputs select,
+.cat-input input, .cat-input select {
   font-size: 20px;
   font-weight: 300;
   width: 165px;
-  border: 2px solid #55a0bb;;
+  border: 3px solid #55a0bb;;
 }
 
 .new-title-price,
@@ -505,9 +507,9 @@ footer {
   width: 700px;
   border-radius: 0 0 15px 15px;
   background-color: #2fb8e9;
-  border-left: 2px solid #55a0bb;
-  border-bottom: 2px solid #55a0bb;
-  border-right: 2px solid #55a0bb;
+  border-left: 3px solid #55a0bb;
+  border-bottom: 3px solid #55a0bb;
+  border-right: 3px solid #55a0bb;
   margin: 0;
   text-align: center;
 }
@@ -515,12 +517,12 @@ footer {
 .new-submit button,
 .edit-submit button,
 .cat-submit button {
-  border: 2px solid #55a0bb;;
+  border: 3px solid #55a0bb;;
   background-color: #ecf8ff;
   color: #2fb8e9;
   width: 175px;
   height: 40px;
-  font-size: 22px;
+  font-size: 23px;
   border-radius: 10px;
 }
 
@@ -545,7 +547,7 @@ footer {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  border-bottom: 2px dashed #bedde9;
+  border-bottom: 3px dashed #bedde9;
 }
 
 .categories-listed>p{
@@ -586,5 +588,5 @@ footer {
   align-items: center;
   margin: 0;
   background-color: #bedde9;
-  border: 2px solid #55a0bb;;
+  border: 3px solid #55a0bb;;
 }
