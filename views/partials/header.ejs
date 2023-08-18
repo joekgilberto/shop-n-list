@@ -1,25 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
+    <title>
+        <%= title %>
+    </title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
+
 <body>
     <header>
-        <h1>Shop 'n' List</h1>
+        <div class="title-image">
+            <img class="logo-img" src="/images/logo.png" alt="Logo" ?>
+            <h1>Shop 'n' List</h1>
+        </div>
         <nav>
-            <a href="/listings"><button <%- title === 'Shop \'n\' List' ? 'class="active"' : '' %>>Browse</button></a>
-            <a href="/categories"><button <%- title === 'All Categories' ? 'class="active"' : '' %>>Categories</button></a>
+            <a href="/listings"><button <%- title==='Shop \' n\' List' ? 'class="active"' : '' %>>Browse</button></a>
+            <a href="/categories"><button <%- title==='All Categories' ? 'class="active"' : ''
+                    %>>Categories</button></a>
 
             <% if (user) { %>
-                <a href="/listings/new"><button <button <%- title === 'New Listing' ? 'class="active"' : '' %>>New Listing</button></a>
-                <a href="/categories/new"><button <button <%- title === 'New Category' ? 'class="active"' : '' %>>New Category</button></a>
+                <a href="/listings/new"><button <button <%- title==='New Listing' ? 'class="active"' : '' %>>New
+                        Listing</button></a>
+                <a href="/categories/new"><button <button <%- title==='New Category' ? 'class="active"' : '' %>>New
+                        Category</button></a>
                 <a href="/logout"><button>Log Out</button></a>
-            <% } else { %>
-                <a href="/auth/google"><button class="button">Login</button></a>
-            <% } %>
+                <% } else { %>
+                    <a href="/auth/google"><button class="button">Login</button></a>
+                    <% } %>
         </nav>
-      </header>
-      <main>
+    </header>
+    <main>

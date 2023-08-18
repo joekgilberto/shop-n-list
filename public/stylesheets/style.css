@@ -47,7 +47,18 @@ header {
   border-bottom: 5px solid #2fb8e9;
 }
 
-header>h1 {
+.title-image{
+  display: flex;
+  align-items: center;
+}
+
+.logo-img{
+  width: 60px;
+  height: auto;
+  margin-right: 10px;
+}
+
+header>.title-image>h1 {
   font-size: 40px;
   margin: 0;
 }
