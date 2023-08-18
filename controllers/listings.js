@@ -64,7 +64,8 @@ async function show(req, res, next) {
     try {
         const id = req.params.id
         const showListing = await Listing.findById(id);
-        let auctions = await Auction.find({listing: new ObjectId(id)});
+        const auctions = await Auction.find({listing: new ObjectId(id)});
+        const currentCategory = await Category.findById(showListing.category);
         
         if (auctions.length > 0) {
 
@@ -83,8 +84,8 @@ async function show(req, res, next) {
             })
         }
 
-        res.render('listings/show', { title: showListing.title, listing: showListing, auctions });
-    } catch (err) {
+        res.render('listings/show', { title: showListing.title, listing: showListing, auctions, category:currentCategory });
+    } catch(err) {
         console.log(err);
         next(Error(err));
     }
