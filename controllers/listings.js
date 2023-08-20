@@ -42,7 +42,6 @@ async function newListing(req, res, next) {
 async function create(req, res, next) {
     const listingData = { ...req.body };
 
-    listingData.listingDate = new Date();
     listingData.user = req.user._id;
     listingData.username = req.user.name;
 

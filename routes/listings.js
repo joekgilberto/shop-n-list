@@ -5,11 +5,11 @@ const listingsCtrl = require('../controllers/listings')
 
 router.get('/', listingsCtrl.index)
 
-router.get('/new', listingsCtrl.new)
+router.get('/new', ensureLoggedIn, listingsCtrl.new)
 
 router.get('/:id', listingsCtrl.show)
 
-router.get('/:id/edit', listingsCtrl.edit)
+router.get('/:id/edit', ensureLoggedIn, listingsCtrl.edit)
 
 router.post('/', ensureLoggedIn, listingsCtrl.create);
 

@@ -5,6 +5,7 @@
     </h1>
     <% categories.forEach(c=> {%>
       <div class="categories-listed">
+        <a class="categories-link" href="/categories/<%=c._id%>">
         <p class="black-text">
           <%= c.title %>
         </p>
@@ -12,13 +13,14 @@
         <% listings.forEach(listing=> { %>
           <% if (c?._id.equals(listing.category)){ count++ } %>
           <%})%>
-          <p>
-            <a href="/categories/<%=c._id%>">
+          <p class="categories-number">
               <%=count%>
-            </a>
+            
           </p>
-                    
+             
+        </a>
       </div>
+      
       
       <%})%>
   </section>

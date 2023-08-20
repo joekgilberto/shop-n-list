@@ -1,11 +1,12 @@
 var express = require('express');
 var router = express.Router();
+const ensureLoggedIn = require('../config/ensureLoggedIn');
 const categoryCtrl = require('../controllers/categories')
 
 router.get('/categories', categoryCtrl.index);
 
-router.get('/categories/new', categoryCtrl.new);
+router.get('/categories/new', ensureLoggedIn, categoryCtrl.new);
 
-router.post('/categories', categoryCtrl.create);
+router.post('/categories', ensureLoggedIn, categoryCtrl.create);
 
 module.exports = router;
