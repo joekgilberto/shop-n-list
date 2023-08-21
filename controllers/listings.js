@@ -1,6 +1,7 @@
 const Listing = require('../models/listings')
 const Auction = require('../models/auctions')
 const Category = require('../models/categories')
+const Utilities = require('../controllers/utilities')
 const ObjectId = require('mongodb').ObjectId;
 
 module.exports = {
@@ -66,22 +67,7 @@ async function show(req, res, next) {
         const auctions = await Auction.find({listing: new ObjectId(id)});
         const currentCategory = await Category.findById(showListing.category);
         
-        if (auctions.length > 0) {
-
-            auctions.forEach(a=>{
-                a.accepted = false
-            })
-    
-            auctions.sort((a, b) => {
-                return b.offer - a.offer
-            })
-    
-            auctions[0].accepted = true
-
-            auctions.forEach(async (a) => {
-                await a.save()
-            })
-        }
+        Utilities.highestBid(auctions)
 
         res.render('listings/show', { title: showListing.title, listing: showListing, auctions, category:currentCategory });
     } catch(err) {

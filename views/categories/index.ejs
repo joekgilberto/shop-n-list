@@ -13,7 +13,7 @@
         <% listings.forEach(listing=> { %>
           <% if (c?._id.equals(listing.category)){ count++ } %>
           <%})%>
-          <p class="categories-number">
+          <p <% if(count > 0){ %>  class="categories-number" <% } else { %> class="categories-number gray" <% } %>>
               <%=count%>
             
           </p>
