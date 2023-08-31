@@ -117,7 +117,7 @@ footer {
 
 .index-list {
   align-items: center;
-  color: #8a94ff;
+  color: #5862d2;
   margin: 20px;
   font-size: 18px;
   padding: 10px;
@@ -153,11 +153,11 @@ footer {
 
 .index-title {
   padding-bottom: 5px;
-  border-bottom: 3px solid #5862d2;
+  border-bottom: 3px solid #8a94ff;
 }
 
 .index-category {
-  color: #5862d2;
+  color: #8a94ff;
 }
 
 .index-post-info {
@@ -393,7 +393,6 @@ footer {
   border-radius: 0 0 15px 15px;
   background-image: linear-gradient(135deg, #5ed4ff, #2fb8e9);
   border-left: 3px solid #62d5ff;
-
   box-shadow: 5px 5px 0px #397185;
 }
 
@@ -599,9 +598,10 @@ footer {
   width: 175px;
   height: auto;
   text-align: center;
-  border-bottom: 3px solid #55a0bb;
+  border-bottom: 3px solid #8a94ff;
   padding-bottom: 10px;
   margin-left: 20px;
+  color: #5862d2;
 }
 
 .category-check {
@@ -615,7 +615,7 @@ footer {
 }
 
 .categories-link:hover>.black-text {
-  color: #2fb8e9 !important;
+  color: #8a94ff !important;
 }
 
 .categories-listed>a {
@@ -624,7 +624,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 3px dashed #bedde9;
+  border-bottom: 3px dashed #bec1dc;
   padding: 0 60px;
 }
 
@@ -633,18 +633,18 @@ footer {
   text-align: center;
   padding: 5px;
   font-size: 20px;
-  background-color: #d9eff7;
-  border-left: 3px solid #76bed8;
-  border-top: 3px solid #76bed8;
-  border-right: 3px solid #55a0bb;
-  border-bottom: 3px solid #55a0bb;
-  box-shadow: 2.5px 2.5px 0px #397185;
-  border-radius: 5px;
-  color: #2fb8e9;
+  color: #5862d2;
+  background-image: linear-gradient(135deg, #eaf8ff, #dce0ff);
+  border-left: 3px solid #8a94ff;
+  border-top: 3px solid #8a94ff;
+  border-right: 3px solid #5862d2;
+  border-bottom: 3px solid #5862d2;
+  box-shadow: 5px 5px 2.5px #00000040;
+  border-radius: 10px;
 }
 
 .gray {
-  color: #55a0bb;
+  color: #8a94ff;
 }
 
 .new-category-inputs {
@@ -687,10 +687,10 @@ footer {
 
 @keyframes box-shadow-color {
   0% {
-    box-shadow: 5px 5px 0px #39718580;
+    box-shadow: 5px 5px 2.5px #00000040;
   } 50% {
-    box-shadow: 5px 5px 0px #50abcd80;
+    box-shadow: 5px 5px 2.5px #00000060;
   } 100% {
-    box-shadow: 5px 5px 0px #39718580;
+    box-shadow: 5px 5px 2.5px #00000040;
   }
 }
