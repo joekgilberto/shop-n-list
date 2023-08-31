@@ -9,4 +9,6 @@ router.get('/categories/new', ensureLoggedIn, categoryCtrl.new);
 
 router.post('/categories', ensureLoggedIn, categoryCtrl.create);
 
+router.get('/categories/:id', categoryCtrl.show);
+
 module.exports = router;
