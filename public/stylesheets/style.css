@@ -95,6 +95,9 @@ nav button {
 main {
   padding-top: 170px;
   padding-bottom: 55px;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
 }
 
 footer {
