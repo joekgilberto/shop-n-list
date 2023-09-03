@@ -1,0 +1,82 @@
+<%- include('../partials/header.ejs') %>
+    <section class="user-listings">
+        <div class="user-h1">
+            <h1>
+                <%=user.name%>'s Listings
+            </h1>
+        </div>
+        <div class="user-under">
+        <% if (listings.length===0){ %>
+            <h2 class="no-listings">No listings yet.</h2>
+            <% } else { %>
+                <% for (let list of listings){ %>
+                    <section class="user-list">
+
+                        <div class="user-title-price-cat">
+                            <div class="user-title-price">
+                                <h2 class="user-title">
+                                    <%= list.title%>
+                                </h2>
+                                <h2>
+                                    $<%= list.price%>
+                                </h2>
+                            </div>
+                            <% for(let category of categories){ %>
+                                <% if(list?.category.equals(category._id)){ %>
+                                    <a class="no-underline" href="/categories/<%=category._id%>">
+                                        <p class="user-category">Category: <%=category.title%>
+                                        </p>
+                                    </a>
+                                    <% } %>
+                                        <% } %>
+                        </div>
+
+
+                        <div class="user-post-info">
+                            <p class="user-link">
+                                <a href="/listings/<%=list._id%>">More Info</a>
+                            </p>
+                            <p class="user-date">Posted:<br />
+                                <% const
+                                    month=["January","February","March","April","May","June","July","August","September","October","November","December"];
+                                    %>
+                                    <%= month[list.listingDate.getMonth()] %>
+                                        <%= list.listingDate.getDate() %>,
+                                            <%= list.listingDate.getFullYear() %>
+                            </p>
+                    </section>
+                    <% }%>
+                        <% }%>
+                        </div>
+    </section>
+
+    <section class="user-listings">
+        <div class="user-h1">
+            <h1>
+                <%=user.name%>'s Auction's
+            </h1>
+        </div>
+        <div class="user-under">
+        <% if (auctions.length===0){ %>
+            <h2 class="no-listings">No auctions yet.</h2>
+            <% } else { %>
+                <% for (let auction of auctions){ %>
+                    <section class="user-list">
+
+                        <div class="user-auction-tile">
+                            <div class="user-title-price">
+                                <h2 class="user-title">
+                                    <%= auction.title%>
+                                </h2>
+                                <p class="user-auction-link">
+                                    <a href="/listings/<%=auction._id%>">More Info</a>
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                    <% }%>
+    </section>
+    <% }%>
+</div>
+
+        <%- include('../partials/footer.ejs') %>

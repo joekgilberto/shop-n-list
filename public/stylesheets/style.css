@@ -410,6 +410,12 @@ footer {
   text-align: center;
 }
 
+.auction-owner{
+  font-size: 16px;
+  color: #868791;
+  padding-left: 5px;
+}
+
 .accepted {
   color: #57b848;
 }
@@ -829,4 +835,123 @@ footer {
     margin-bottom: 130px;
 
   }
+}
+
+/* ############################################## User ############################################## */
+.user-listings{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-under{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.user-list{
+  align-items: center;
+  color: #5862d2;
+  margin: 20px;
+  font-size: 18px;
+  padding: 15x;
+  border-radius: 10px;
+  width: 400px;
+  height: auto;
+}
+
+.user-list:hover>.user-title-price-cat,
+.user-list:hover>.user-post-info{
+  animation: 3s infinite box-shadow-color;
+}
+
+.user-title-price-cat{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: left;
+  padding: 0px 20px;
+  border-radius: 15px 15px 0 0;
+  border-left: 3px solid #8a94ff;
+  border-top: 3px solid #8a94ff;
+  border-right: 3px solid #5862d2;
+  box-shadow: 5px 5px 2.5px #00000040;
+}
+
+.user-title-price{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-title{
+}
+
+.user-category{
+  color: #8a94ff;
+}
+
+.user-post-info{
+  height: 75px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 20px 20px 0 20px;
+  background-image: linear-gradient(135deg, #8a94ff, #5862d2);
+  border-left: 3px solid #8a94ff;
+  border-radius: 0 0 15px 15px;
+  box-shadow: 5px 5px 2.5px #00000040;
+  margin: 0;
+  color: #ecf8ff;
+}
+
+.user-link{
+  font-weight: bold;
+}
+
+.user-date{
+  font-size: 16px;
+  text-align: right;
+}
+
+.user-auction-tile{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: left;
+  padding: 0px 20px;
+  border-radius: 15px;
+  border-left: 3px solid #8a94ff;
+  border-top: 3px solid #8a94ff;
+  border-right: 3px solid #5862d2;
+  border-bottom: 3px solid #5862d2;
+  box-shadow: 5px 5px 2.5px #00000040;
+}
+
+.user-auction-link{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-auction-link>a{
+  color: #8a94ff !important;
+}
+
+.user-h1>h1 {
+  text-align: center;
+  color: #5862d2;
+  background-image: linear-gradient(135deg, #eaf8ff, #dce0ff);
+  border-left: 3px solid #8a94ff;
+  border-top: 3px solid #8a94ff;
+  border-right: 3px solid #5862d2;
+  border-bottom: 3px solid #5862d2;
+  box-shadow: 5px 5px 2.5px #00000040;
+  border-radius: 10px;
+  padding: 15px;
 }

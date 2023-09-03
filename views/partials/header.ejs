@@ -18,19 +18,23 @@
             <h1>Shop 'n' List</h1>
         </div>
         <nav>
-            <a href="/listings"><button <%- title==='Shop \'n\' List' ? 'class="active"' : '' %>>Browse</button></a>
+            <a href="/listings"><button <%- title==='Shop \' n\' List' ? 'class="active"' : '' %>>Browse</button></a>
             <a href="/categories"><button <%- title==='All Categories' ? 'class="active"' : ''
                     %>>Categories</button></a>
 
             <% if (user) { %>
-                <a href="/listings/new"><button <button <%- title==='New Listing' ? 'class="active"' : '' %>>New
+                <a href="/listings/new"><button <%- title==='New Listing' ? 'class="active"' : '' %>>New
                         Listing</button></a>
-                <a href="/categories/new"><button <button <%- title==='New Category' ? 'class="active"' : '' %>>New
+                <a href="/categories/new"><button <%- title==='New Category' ? 'class="active"' : '' %>>New
                         Category</button></a>
-                <a href="/logout"><button>Log Out</button></a>
-                <% } else { %>
-                    <a href="/auth/google"><button class="button">Login</button></a>
-                    <% } %>
+                <% if (title===user.name){ %>
+                    <a href="/logout"><button <%- title===user.name ? 'class="active"' : '' %>>Log Out</button></a>
+                    <% } else { %>
+                        <a href="/user/<%=user._id%>"><button><%=user.name%></button></a>
+                        <% } %>
+                            <% } else { %>
+                                <a href="/auth/google"><button class="button">Login</button></a>
+                                <% } %>
         </nav>
     </header>
     <main>
