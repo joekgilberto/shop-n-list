@@ -16,7 +16,7 @@ router.get('/:id/edit', ensureLoggedIn, listingsCtrl.edit)
 
 router.post('/', ensureLoggedIn, upload.single("imageUpload"), listingsCtrl.create);
 
-router.put('/:id', ensureLoggedIn, listingsCtrl.update)
+router.put('/:id', ensureLoggedIn, upload.single("imageUpload"), listingsCtrl.update)
 
 router.delete('/:id', ensureLoggedIn, listingsCtrl.delete)
 

@@ -11,28 +11,26 @@
                 </div>
             </div>
             <img class="show-image" src=<%=listing.image%> alt=<%=listing.name%> />
-                <div class="show-status-date">
-                    <% if(listing.sold===false){ %>
-                        <p class="for-sale">For Sale</p>
-                        <% } else if(listing.sold===true) { %>
-                            <p class="sold">Sold</p>
-                            <%}%>
-                                <p class="show-date">Posted:<br />
-                                    <% const
-                                        month=["January","February","March","April","May","June","July","August","September","October","November","December"];
-                                        %>
-                                        <%= month[listing.listingDate.getMonth()] %>
-                                            <%= listing.listingDate.getDate() %>,
-                                                <%= listing.listingDate.getFullYear() %>
-                                </p>
-                </div>
-                <!-- Info for specific listings -->
-                <div class="show-category">
-                    <p>
-                        <span class="bold-underline">Category:</span><br /><span class="black-text">
-                            <%=category.title%>
-                        </span>
-                    </p>
+            <div class="show-status-date">
+                <% if(listing.sold===false){ %>
+                    <p class="for-sale">For Sale</p>
+                    <% } else if(listing.sold===true) { %>
+                        <p class="sold">Sold</p>
+                        <%}%>
+                            <p class="show-date">Posted:<br />
+                                <% const
+                                    month=["January","February","March","April","May","June","July","August","September","October","November","December"];
+                                    %>
+                                    <%= month[listing.listingDate.getMonth()] %>
+                                        <%= listing.listingDate.getDate() %>,
+                                            <%= listing.listingDate.getFullYear() %>
+                            </p>
+            </div>
+            <!-- Info for specific listings -->
+            <div class="show-category">
+                            <p>
+                                <span class="bold-underline">Category:</span><br/><span class="black-text"><%=category.title%></span>
+                            </p>
                     <% if (listing.username){ %>
                         <p><span class="bold-underline">Seller:</span><br />
                             <%= listing.username%>

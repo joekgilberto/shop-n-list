@@ -4,7 +4,8 @@
       <%=title%>
     </h1>
     <!-- Form to edit existing listings -->
-    <form action="/listings/<%= listing._id %>?_method=PUT" method="POST">
+    <form action="/listings/<%= listing._id %>?_method=PUT" method="POST" autocomplete="off"
+      enctype="multipart/form-data">
       <div class="edit-inputs">
         <div class="edit-title-price">
 
@@ -20,15 +21,19 @@
         <label class="edit-description">Description:
           <input type="text" name="description" value="<%= listing.description %>" required>
         </label><br>
+        <img class="edit-image" src=<%=listing.image%> alt=<%=listing.name%> />
 
         <label>Category:
           <select name="categoryId" required>
-            <% categories.forEach(c =>{%>
+            <% categories.forEach(c=>{%>
               <option value="<%= c.id %>" <% if(listing?.category.equals(c.id)){ %> selected <% } %>>
-                <%= c.title %>
+                  <%= c.title %>
               </option>
-            <%})%>
+              <%})%>
           </select>
+        </label><br>
+        <label>New Image:
+          <input type="file" name="imageUpload" class="image-input" />
         </label><br>
         <label class="edit-sold">Sold?
           <input class="sold-check" type="checkbox" name="sold" <% if (listing.sold){ %> checked<% } %>>
