@@ -35,9 +35,11 @@
         <label>New Image:
           <input type="file" name="imageUpload" class="image-input" />
         </label><br>
-        <label class="edit-sold">Sold?
+        <% if(topBid){ %>
+        <label class="accept-bid">Accept Top Bid: $<%=topBid.offer%>
           <input class="sold-check" type="checkbox" name="sold" <% if (listing.sold){ %> checked<% } %>>
         </label>
+        <%}%>
       </div>
       <div class="edit-submit">
         <button type="submit">Edit Listing</button>
