@@ -16,9 +16,9 @@ module.exports = {
 
 function auctionDetermination(auctionData,foundListing) {
     if (auctionData.offer < foundListing.price) {
-        auctionData.accepted = 0
+        auctionData.ranking = 0
     } else {
-        auctionData.accepted = 1
+        auctionData.ranking = 1
     }
 }
 
@@ -35,7 +35,7 @@ async function highestBid(auctions) {
             return b.offer - a.offer
         })
 
-        auctions[0].accepted = 2
+        auctions[0].ranking = 2
     }
 }
 

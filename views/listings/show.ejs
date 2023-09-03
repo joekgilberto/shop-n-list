@@ -52,7 +52,7 @@
                         <% } %>
                 </div>
         </section>
-        <!-- Bidding menu; shows past, pending, and accepted bids -->
+        <!-- Bidding menu; shows past, pending, and ranking bids -->
         <section class="show-bidding">
             <h2>Auction</h2>
             <div class="show-bids">
@@ -63,11 +63,13 @@
                                 <p>
                                     $<%=a.offer%>
                                 </p>
-                                <% if (a.accepted===2){ %>
-                                    <p class="accepted">Highest Bid</p>
-                                    <% } else if (a.accepted===1) { %>
+                                <% if (a.ranking===2 && a.accepted === false){ %>
+                                    <p class="highest">Highest Bid</p>
+                                    <% } else if (a.ranking===2 && a.accepted === true){ %>
+                                        <p class="accepted">Accepted</p>
+                                    <% } else if (a.ranking===1) { %>
                                         <p class="considering">Considering</p>
-                                        <% } else if (a.accepted===0) { %>
+                                        <% } else if (a.ranking===0) { %>
                                             <p class="too-low">Too Low</p>
                                             <% } %>
                             </div>
@@ -87,7 +89,7 @@
                                 <% } %>
             </div>
             <div class="show-offer">
-                <% if (user && !user?._id.equals(listing.user)) { %>
+                <% if (user && !user?._id.equals(listing.user) && !topBid?.accepted) { %>
                     <form class="show-offer-input" action="/listings/<%=listing._id%>/auction/new" method="POST">
                         <label>Offer: $
                             <input type="number" min="0" step="0.01" name="offer" required>

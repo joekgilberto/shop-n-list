@@ -83,7 +83,7 @@ async function show(req, res, next) {
 
         Utilities.highestBid(auctions)
 
-        res.render('listings/show', { title: showListing.title, listing: showListing, auctions, category: currentCategory });
+        res.render('listings/show', { title: showListing.title, listing: showListing, auctions, topBid: auctions[0], category: currentCategory });
     } catch (err) {
         console.log(err);
         next(Error(err));
@@ -94,10 +94,12 @@ async function show(req, res, next) {
 async function edit(req, res, next) {
     const id = req.params.id;
     const results = await Listing.findById(id);
-
+    const auctions = await Auction.find({ listing: new ObjectId(id) });
     const allCategories = await Category.find().sort('title');
 
-    res.render('listings/edit', { title: `Edit Listing`, listing: results, categories: allCategories, id, errorMsg: '' })
+    Utilities.highestBid(auctions)
+
+    res.render('listings/edit', { title: `Edit Listing`, listing: results, categories: allCategories, id, errorMsg: '', topBid: auctions[0] })
 }
 
 // Function to take form data to update a listing collection
@@ -105,6 +107,9 @@ async function update(req, res, next) {
     const id = req.params.id
     const updatedData = req.body
     updatedData.category = [updatedData.categoryId]
+
+    const auctions = await Auction.find({ listing: new ObjectId(id) });
+    Utilities.highestBid(auctions)
     
     let streamUploadResult = await Utilities.streamUpload(req);
     console.log("streamUploadResult",streamUploadResult)
@@ -115,8 +120,10 @@ async function update(req, res, next) {
 
     if (updatedData.sold === 'on') {
         updatedData.sold = true
+        auctions[0].accepted = true
     } else {
         updatedData.sold = false
+        auctions[0].accepted = false
     }
 
     try {

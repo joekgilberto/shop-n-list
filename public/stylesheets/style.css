@@ -411,6 +411,10 @@ footer {
 }
 
 .accepted {
+  color: #57b848;
+}
+
+.highest {
   color: #5862d2;
 }
 
@@ -651,6 +655,17 @@ footer {
   border: none !important;
   box-shadow: none !important;
   border-radius: 0 !important;
+}
+
+.accept-bid{
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+
+}
+
+.accept-bid>input{
+  margin-left: 10px;
 }
 
 /* ############################################## Categories ############################################## */
