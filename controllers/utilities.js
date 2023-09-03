@@ -28,7 +28,6 @@ async function highestBid(auctions) {
         auctions.forEach(async (a) => {
             let foundListing = await Listing.findById(a.listing)
             auctionDetermination(a,foundListing)
-            console.log(a.accepted)
             await a.save()
         })
 
@@ -45,7 +44,6 @@ function streamUpload(req) {
         return new Promise((resolve, reject) => {
             let stream = cloudinary.uploader.upload_stream((error, result) => {
                 if (result) {
-                    console.log(result);
                     resolve(result);
                 } else {
                     reject(error);

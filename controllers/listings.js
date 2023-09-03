@@ -58,7 +58,6 @@ async function create(req, res, next) {
 
     try {
         let streamUploadResult = await Utilities.streamUpload(req);
-        console.log(streamUploadResult)
         const createdListing = await Listing.create(listingData).then(function (result) {
             result.category = req.body.categoryId
             if (streamUploadResult){

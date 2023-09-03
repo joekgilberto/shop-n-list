@@ -280,10 +280,11 @@ footer {
   border-bottom: 4px solid #dce0ff;
 }
 
-.show-image>img {
+.show-image {
   width: 100%;
-  height: 250px;
+  height: 300px;
   object-fit: cover;
+  background-color: #dce0ff;
 }
 
 .for-sale {
