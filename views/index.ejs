@@ -15,7 +15,7 @@
         </div>
           <% for(let category of categories){ %>
               <% if(list?.category.equals(category._id)){ %>
-              <p class="index-category">Category: <%=category.title%></p>
+              <a class="no-underline" href="/categories/<%=category._id%>"><p class="index-category">Category: <%=category.title%></p></a>
               <% } %>
           <% } %>
         </div>

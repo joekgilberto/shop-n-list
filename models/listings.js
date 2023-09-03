@@ -18,6 +18,7 @@ const listingSchema = new Schema({
         type: Boolean,
         default: false
     },
+    image: { type: String, default: "https://upload.wikimedia.org/wikipedia/commons/4/40/Shopping-cart-icon-with-bags-symbol-only.png?20210611024910" },
     //add required true
     user: { type: Schema.Types.ObjectId },
     username: { type: String },

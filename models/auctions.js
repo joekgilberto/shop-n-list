@@ -4,14 +4,14 @@ const Schema = mongoose.Schema;
 
 const auctionSchema = new Schema({
     offer: {type: Number, required: true},
-    accepted: {type: Boolean, default: false},
+    accepted: {type: Number, required: true},
     listing: {
         type: Schema.Types.ObjectId,
-        ref: 'Listing'
+        ref: 'Listing',
+        required: true
     },
-    user: { type: Schema.Types.ObjectId },
-    username: { type: String },
-    email:  { type: String }
+    user: { type: Schema.Types.ObjectId, required: true },
+    username: { type: String, required: true },
 })
 
 module.exports = mongoose.model('Auction', auctionSchema)

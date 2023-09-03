@@ -4,7 +4,7 @@
       <%=title%>
     </h1>
     <!-- Page to create new listing -->
-    <form action="/listings" method="POST">
+    <form action="/listings" method="POST" autocomplete="off" enctype="multipart/form-data">
       <div class="new-inputs">
         <div class="new-title-price">
           <label>Title:
@@ -20,13 +20,17 @@
 
         <label>Category:
           <select name="categoryId">
-            <% categories.forEach(c =>{%>
+            <% categories.forEach(c=>{%>
               <option value="<%= c._id %>">
                 <%= c.title %>
               </option>
-            <%})%>
+              <%})%>
           </select>
           <!-- <input type="submit" value="Add Category" /> -->
+        </label><br>
+
+        <label>Image:
+          <input type="file" name="imageUpload" class="image-input" />
         </label><br>
       </div>
       <div class="new-submit">

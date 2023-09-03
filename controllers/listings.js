@@ -4,6 +4,16 @@ const Category = require('../models/categories')
 const Utilities = require('../controllers/utilities')
 const ObjectId = require('mongodb').ObjectId;
 
+const multer = require("multer");
+const upload = multer();
+const cloudinary = require("cloudinary").v2;
+const streamifier = require("streamifier");
+const { clConfig } = require("../config/cloudinary.js");
+
+cloudinary.config(clConfig);
+
+
+
 module.exports = {
     index,
     new: newListing,
@@ -19,8 +29,8 @@ async function index(req, res, next) {
     try {
         const id = req.params.id
         const listings = await Listing.find(id).populate('category');
-        listings.sort((a,b)=>{
-          return b.listingDate - a.listingDate
+        listings.sort((a, b) => {
+            return b.listingDate - a.listingDate
         })
 
         const allCategories = await Category.find().sort('title');
@@ -47,8 +57,13 @@ async function create(req, res, next) {
     listingData.username = req.user.name;
 
     try {
-        const createdListing = await Listing.create(listingData).then(function(result){
+        let streamUploadResult = await Utilities.streamUpload(req);
+        console.log(streamUploadResult)
+        const createdListing = await Listing.create(listingData).then(function (result) {
             result.category = req.body.categoryId
+            if (streamUploadResult){
+                result.image = streamUploadResult.url
+            }
             result.save()
             res.redirect(`/listings/${result._id}`);
         })
@@ -64,13 +79,13 @@ async function show(req, res, next) {
     try {
         const id = req.params.id
         const showListing = await Listing.findById(id);
-        const auctions = await Auction.find({listing: new ObjectId(id)});
+        const auctions = await Auction.find({ listing: new ObjectId(id) });
         const currentCategory = await Category.findById(showListing.category);
-        
+
         Utilities.highestBid(auctions)
 
-        res.render('listings/show', { title: showListing.title, listing: showListing, auctions, category:currentCategory });
-    } catch(err) {
+        res.render('listings/show', { title: showListing.title, listing: showListing, auctions, category: currentCategory });
+    } catch (err) {
         console.log(err);
         next(Error(err));
     }
@@ -82,7 +97,7 @@ async function edit(req, res, next) {
     const results = await Listing.findById(id);
 
     const allCategories = await Category.find().sort('title');
-    
+
     res.render('listings/edit', { title: `Edit Listing`, listing: results, categories: allCategories, id, errorMsg: '' })
 }
 
@@ -91,7 +106,7 @@ async function update(req, res, next) {
     const id = req.params.id
     const updatedData = req.body
     updatedData.category = [updatedData.categoryId]
-    
+
     if (updatedData.sold === 'on') {
         updatedData.sold = true
     } else {
@@ -113,8 +128,8 @@ async function update(req, res, next) {
 // Deletes a listing and all of its auction data
 async function deleteListing(req, res, next) {
     const id = req.params.id;
-  
-    Auction.deleteMany({ listing: id }).then(function(){
+
+    Auction.deleteMany({ listing: id }).then(function () {
         Listing.deleteOne({ _id: id }).then(function () {
             res.redirect(`/listings`)
 

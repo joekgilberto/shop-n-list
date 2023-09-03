@@ -1,4 +1,5 @@
 const Auction = require('../models/auctions')
+const Utilities = require('../controllers/utilities')
 const ObjectId = require('mongodb').ObjectId;
 
 module.exports = {
@@ -12,6 +13,8 @@ async function create(req,res,next){
     const auctionData = {...req.body}
     const foundListing = new ObjectId(id)
 
+    Utilities.auctionDetermination(auctionData,foundListing)
+    
     auctionData.listing = foundListing
     auctionData.user = req.user._id;
     auctionData.username = req.user.name;

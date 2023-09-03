@@ -10,6 +10,9 @@
                     </p>
                 </div>
             </div>
+            <div class="show-image">
+                <img src=<%=listing.image%> alt=<%=listing.name%> />
+            </div>
             <div class="show-status-date">
                 <% if(listing.sold===false){ %>
                     <p class="for-sale">For Sale</p>
@@ -62,11 +65,13 @@
                                 <p>
                                     $<%=a.offer%>
                                 </p>
-                                <% if (a.accepted){ %>
+                                <% if (a.accepted === 2){ %>
                                     <p class="accepted">Highest Bid</p>
-                                    <% } else { %>
+                                    <% } else  if (a.accepted === 1) { %>
                                         <p class="considering">Considering</p>
-                                        <% } %>
+                                        <% } else  if (a.accepted === 0) { %>
+                                            <p class="too-low">Too Low</p>
+                                            <% } %>
                             </div>
                             <div class="show-bid-delete">
                                 <% if (user?._id.equals(a.user)){ %>
