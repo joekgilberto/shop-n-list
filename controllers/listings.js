@@ -58,7 +58,6 @@ async function create(req, res, next) {
 
     try {
         let streamUploadResult = await Utilities.streamUpload(req);
-        console.log(streamUploadResult)
         const createdListing = await Listing.create(listingData).then(function (result) {
             result.category = req.body.categoryId
             if (streamUploadResult){
@@ -106,6 +105,13 @@ async function update(req, res, next) {
     const id = req.params.id
     const updatedData = req.body
     updatedData.category = [updatedData.categoryId]
+    
+    let streamUploadResult = await Utilities.streamUpload(req);
+    console.log("streamUploadResult",streamUploadResult)
+
+    if (streamUploadResult){
+        updatedData.image = streamUploadResult.url
+    }
 
     if (updatedData.sold === 'on') {
         updatedData.sold = true
