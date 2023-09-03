@@ -37,20 +37,20 @@
                         </p>
                         <% } %>
                 </div>
-            <div class="show-description">
-                <p>
-                    <span class="bold-underline">About:</span><br />
-                    <%= listing.description%>
-                </p>
-            </div>
-            <div class="show-buttons">
-                <% if(user?._id.equals(listing.user)){ %>
-                    <a href="/listings/<%=listing._id%>/edit"><button class="edit">Edit</button></a>
-                    <form action="/listings/<%= listing._id %>?_method=DELETE" method="POST">
-                        <button class="delete" type="submit">Delete</button>
-                    </form>
-                    <% } %>
-            </div>
+                <div class="show-description">
+                    <p>
+                        <span class="bold-underline">About:</span><br />
+                        <%= listing.description%>
+                    </p>
+                </div>
+                <div class="show-buttons">
+                    <% if(user?._id.equals(listing.user)){ %>
+                        <a href="/listings/<%=listing._id%>/edit"><button class="edit">Edit</button></a>
+                        <form action="/listings/<%= listing._id %>?_method=DELETE" method="POST">
+                            <button class="delete" type="submit">Delete</button>
+                        </form>
+                        <% } %>
+                </div>
         </section>
         <!-- Bidding menu; shows past, pending, and accepted bids -->
         <section class="show-bidding">
@@ -63,11 +63,11 @@
                                 <p>
                                     $<%=a.offer%>
                                 </p>
-                                <% if (a.accepted === 2){ %>
+                                <% if (a.accepted===2){ %>
                                     <p class="accepted">Highest Bid</p>
-                                    <% } else  if (a.accepted === 1) { %>
+                                    <% } else if (a.accepted===1) { %>
                                         <p class="considering">Considering</p>
-                                        <% } else  if (a.accepted === 0) { %>
+                                        <% } else if (a.accepted===0) { %>
                                             <p class="too-low">Too Low</p>
                                             <% } %>
                             </div>
