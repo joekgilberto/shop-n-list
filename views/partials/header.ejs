@@ -20,15 +20,12 @@
             </div>
         </a>
         <nav>
-            <a href="/listings"><button <%- title==='Shop \' n\' List' ? 'class="active"' : '' %>>Browse</button></a>
-            <a href="/categories"><button <%- title==='All Categories' ? 'class="active"' : ''
-                    %>>Categories</button></a>
+            <a href="/listings"><button <%- title==='Shop \'n\' List' ? 'class="active"' : '' %>>Browse</button></a>
+            <a href="/categories"><button <%- title==='All Categories' ? 'class="active"' : ''%>>Categories</button></a>
 
             <% if (user) { %>
-                <a href="/listings/new"><button <%- title==='New Listing' ? 'class="active"' : '' %>>New
-                        Listing</button></a>
-                <a href="/categories/new"><button <%- title==='New Category' ? 'class="active"' : '' %>>New
-                        Category</button></a>
+                <a href="/listings/new"><button <%- title==='New Listing' ? 'class="active"' : '' %>>New Listing</button></a>
+                <a href="/categories/new"><button <%- title==='New Category' ? 'class="active"' : '' %>>New Category</button></a>
                 <% if (title===user.name){ %>
                     <a href="/logout"><button <%- title===user.name ? 'class="active"' : '' %>>Log Out</button></a>
                     <% } else { %>
