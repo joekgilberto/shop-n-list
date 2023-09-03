@@ -68,6 +68,10 @@ header {
   align-items: center;
 }
 
+header a{
+  text-decoration: none !important;
+}
+
 .logo-img {
   display: none;
   width: 60px;

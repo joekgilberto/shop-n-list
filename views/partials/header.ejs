@@ -13,10 +13,12 @@
 
 <body>
     <header>
-        <div class="title-image">
-            <img class="logo-img" src="/images/logo.png" alt="Logo" ?>
-            <h1>Shop 'n' List</h1>
-        </div>
+        <a href="/">
+            <div class="title-image">
+                <img class="logo-img" src="/images/logo.png" alt="Logo" ?>
+                <h1>Shop 'n' List</h1>
+            </div>
+        </a>
         <nav>
             <a href="/listings"><button <%- title==='Shop \' n\' List' ? 'class="active"' : '' %>>Browse</button></a>
             <a href="/categories"><button <%- title==='All Categories' ? 'class="active"' : ''
@@ -30,7 +32,9 @@
                 <% if (title===user.name){ %>
                     <a href="/logout"><button <%- title===user.name ? 'class="active"' : '' %>>Log Out</button></a>
                     <% } else { %>
-                        <a href="/user/<%=user._id%>"><button><%=user.name%></button></a>
+                        <a href="/user/<%=user._id%>"><button>
+                                <%=user.name%>
+                            </button></a>
                         <% } %>
                             <% } else { %>
                                 <a href="/auth/google"><button class="button">Login</button></a>
