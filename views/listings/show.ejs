@@ -62,6 +62,7 @@
                             <div class="bid-info">
                                 <p>
                                     $<%=a.offer%>
+                                    <% if (user?._id.equals(a.user)){ %> <span class="auction-owner">(yours)</span> <% } else { %> <span class="auction-owner">(<%=a.username%>)</span> <% } %>
                                 </p>
                                 <% if (a.ranking===2 && a.accepted === false){ %>
                                     <p class="highest">Highest Bid</p>

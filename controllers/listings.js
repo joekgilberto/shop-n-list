@@ -28,7 +28,7 @@ module.exports = {
 async function index(req, res, next) {
     try {
         const id = req.params.id
-        const listings = await Listing.find(id).populate('category');
+        const listings = await Listing.find();
         listings.sort((a, b) => {
             return b.listingDate - a.listingDate
         })
