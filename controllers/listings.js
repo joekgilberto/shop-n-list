@@ -1,7 +1,7 @@
 const Listing = require('../models/listings')
 const Auction = require('../models/auctions')
 const Category = require('../models/categories')
-const Utilities = require('../controllers/utilities')
+const Utilities = require('./utilities')
 const ObjectId = require('mongodb').ObjectId;
 
 const multer = require("multer");
@@ -53,17 +53,16 @@ async function newListing(req, res, next) {
 async function create(req, res, next) {
     const listingData = { ...req.body };
 
+    listingData.category = req.body.categoryId;
     listingData.user = req.user._id;
     listingData.username = req.user.name;
 
     try {
         let streamUploadResult = await Utilities.streamUpload(req);
+        if (streamUploadResult){
+            listingData.image = streamUploadResult.url
+        }
         const createdListing = await Listing.create(listingData).then(function (result) {
-            result.category = req.body.categoryId
-            if (streamUploadResult){
-                result.image = streamUploadResult.url
-            }
-            result.save()
             res.redirect(`/listings/${result._id}`);
         })
     } catch (err) {
