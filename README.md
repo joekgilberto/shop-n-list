@@ -7,30 +7,29 @@ An Express.js web application that allows users to login, post listings for sale
 <img src="assets/index.png">
 
 ### New Listing
-<img src="assets/new.png">
+<img src="assets/new-listing.png">
 
 ### Individual Listing
-<img src="assets/show_listing.png">
-
-### Bid on Listing
-<img src="assets/show_auction.png">
+<img src="assets/show-listing.png">
 
 ### Edit Listing
 <img src="assets/edit.png">
 
+### All Categories
+<img src="assets/categories.png">
+
 ### New Category
-<img src="assets/new_cat.png">
+<img src="assets/new-category.png">
 
 # Technologies Used
 
 - JavaScript
-- HTML
+- EJS
 - CSS
 - MognoDB
 - Mongoose
 - Express.js
 - Node.js
-- EJS
 - Dotenv
 - Method Override
 - Passport
@@ -43,14 +42,12 @@ An Express.js web application that allows users to login, post listings for sale
 
 # Getting Started
 
-[Click to start shopping!](https://jte-collective-a4dbe6e33fa8.herokuapp.com/)
+[Click to start shopping!](https://shop-n-list-bce500242f47.herokuapp.com/listings)
 
-JTE Collective invites you to login with your Google credentials.  Once logged in, you can create listings to sell items, bid on other people's listings, and even create new categories of items to sell in.
+Shop 'n' List invites you to login with your Google credentials, create listings to sell items, bid on other people's listings, and even create new categories of items to sell in.
 
-Owners of listings also have the functionality to edit or delete their posts, and bidders can delete their auction bids as well.
+Owners of listings also have the functionality to edit or delete their posts, and bidders can delete their auction bids as well.  There's even a handy user's page for users to see all their listings and bids in one place.
 
 # Next Steps
 
-- Adding a category show page, to show all listings in a category.
-- Adding images to listings so listers can show off their wares.
-- Add an expiration to listings.
+- Enable contact between the seller and buyer once a bid is accepted.
