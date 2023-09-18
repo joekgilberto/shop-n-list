@@ -4,22 +4,22 @@ An Express.js web application that allows users to login, post listings for sale
 # Screenshot
 
 ### All Listings
-<img src="assets/index.png">
+![index](lib/assets/index.png)
 
 ### New Listing
-<img src="assets/new-listing.png">
+![new](lib/assets/new-listing.png)
 
 ### Individual Listing
-<img src="assets/show-listing.png">
+![show](lib/assets/show-listing.png)
 
 ### Edit Listing
-<img src="assets/edit.png">
+![edit](lib/assets/edit.png)
 
 ### All Categories
-<img src="assets/categories.png">
+![categories](lib/assets/categories.png)
 
 ### New Category
-<img src="assets/new-category.png">
+![index](lib/assets/new-category.png)
 
 # Technologies Used
 

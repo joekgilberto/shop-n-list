@@ -1,19 +1,12 @@
+// Imports Listing, Auction, and Category models, along with utility functions from their controllers and the ObjectId type conversion from MongoDB
 const Listing = require('../models/listings')
 const Auction = require('../models/auctions')
 const Category = require('../models/categories')
 const Utilities = require('./utilities')
 const ObjectId = require('mongodb').ObjectId;
 
-const multer = require("multer");
-const upload = multer();
-const cloudinary = require("cloudinary").v2;
-const streamifier = require("streamifier");
-const { clConfig } = require("../config/cloudinary.js");
 
-cloudinary.config(clConfig);
-
-
-
+// exports functions of the controller
 module.exports = {
     index,
     new: newListing,
@@ -49,7 +42,7 @@ async function newListing(req, res, next) {
     res.render('listings/new', { title: 'New Listing', categories: allCategories, errorMsg: '' });
 }
 
-// Function that creates a listing using form data and assings it a user, username, and category property
+// Function that creates a listing using form data and assings it a user, username, and category property.  Also adds an image property if an image is uploaded by the user
 async function create(req, res, next) {
     const listingData = { ...req.body };
 
@@ -89,7 +82,7 @@ async function show(req, res, next) {
     }
 }
 
-// Function to render an edit page to update a listing 
+// Function to render an edit page to update a listing and accept the highest auction bid
 async function edit(req, res, next) {
     const id = req.params.id;
     const results = await Listing.findById(id);

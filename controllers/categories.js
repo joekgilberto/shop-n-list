@@ -1,7 +1,9 @@
+// Imports Category and Listing models, along with the ObjectId type conversion from MongoDB
 const Category = require('../models/categories');
 const Listing = require('../models/listings');
 const ObjectId = require('mongodb').ObjectId;
 
+// exports functions of the controller
 module.exports = {
     index,
     create,
@@ -45,6 +47,7 @@ async function newCategory(req, res) {
     });
 }
 
+// Function that shows a specific category and its associated listings
 async function show(req, res, next) {
     try {
         const id = req.params.id

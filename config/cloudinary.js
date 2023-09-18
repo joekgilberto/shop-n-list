@@ -1,4 +1,4 @@
-
+//accesses Cloudinary using environmental variables
 module.exports = {
     clConfig: {
         cloud_name: process.env.CL_NAME,
@@ -7,5 +7,4 @@ module.exports = {
         use_filename: true,
         folder: 'demo/assets'
     },
-		// other modules, helper functions, etc could also be exported from the module
 }

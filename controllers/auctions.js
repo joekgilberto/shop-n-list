@@ -1,7 +1,9 @@
+// Imports Auction model and utilities functions from controllers, along with the ObjectId type conversion from MongoDB
 const Auction = require('../models/auctions')
-const Utilities = require('../controllers/utilities')
+const Utilities = require('./utilities')
 const ObjectId = require('mongodb').ObjectId;
 
+// exports functions of the controller
 module.exports = {
     create,
     delete: deleteAuction

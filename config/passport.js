@@ -1,3 +1,4 @@
+//configures passport to allow Google sign in with Oauth 2.0
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const User = require('../models/user');

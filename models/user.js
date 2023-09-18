@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+// A User schema used in Google OAuth that holds a name, a Google ID, email, and avatar
 const userSchema = new Schema({
   name: String,
   googleId: {
@@ -9,8 +10,6 @@ const userSchema = new Schema({
   },
   email: String,
   avatar: String
-}, {
-  timestamps: true
 });
 
 module.exports = mongoose.model('User', userSchema);
